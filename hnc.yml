@@ -1,0 +1,5 @@
+- hosts: fixes
+
+  tasks:
+          - command: "hostnamectl set-hostname {{ inventory_hostname }}"
+            become: yes

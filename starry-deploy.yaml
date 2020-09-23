@@ -1,0 +1,36 @@
+---
+apiVersion: apps/v1     #api version to use
+kind: Deployment        #example Pod/Deployment
+metadata:
+        name: starry    #name to apply
+        labels:
+                designer: rzf       #label to apply
+                team: issdevelopment
+                primaryapp: flask
+                language: python3
+                released: 2020q3
+                appname: starry
+spec:
+        selector:
+                matchLabels:
+                        appname: starry
+                        team: issdevelopment
+                        primaryapp: flask
+        replicas: 1
+        template:
+                metadata:
+                  labels:
+                        appname: starry
+                        team: issdevelopment
+                        primaryapp: flask
+                spec:
+                        containers:
+                                -
+                        name: starry    #name of container
+                        image: reg.alta3.com/talukder-3252-starry   #image to use if no URL provided hub.docker.com is used
+                        ports:
+                                -
+                        name: httpflask          #port name
+                        containerPort: 5000      #access on this port (int)
+                        protocol: TCP            #TCP or UDP
+
